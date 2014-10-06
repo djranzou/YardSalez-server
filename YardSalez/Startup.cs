@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Owin;
-using Owin;
-using System.Web.Http;
+﻿using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
+using Owin;
+using System;
+using System.Web.Http;
+using YardSalez.DependencyResolution;
 using YardSalez.Infrastructure;
 
 [assembly: OwinStartup(typeof(YardSalez.Startup))]
@@ -14,9 +14,13 @@ namespace YardSalez
         public void Configuration(IAppBuilder app)
         {
             ConfigureOAuth(app);
-            var config = new HttpConfiguration();
-            WebApiConfig.Register(config);
-            app.UseWebApi(config);
+            var container = IoC.Initialize();
+            var configuration = new HttpConfiguration
+            {
+                DependencyResolver = new StructureMapWebApiDependencyResolver(container)
+            };
+            WebApiConfig.Register(configuration);
+            app.UseWebApi(configuration);
         }
 
         private void ConfigureOAuth(IAppBuilder app)
@@ -32,7 +36,6 @@ namespace YardSalez
             // Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-
         }
     }
 }
