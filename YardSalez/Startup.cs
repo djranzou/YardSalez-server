@@ -19,7 +19,7 @@ namespace YardSalez
             app.UseWebApi(config);
         }
 
-        public void ConfigureOAuth(IAppBuilder app)
+        private void ConfigureOAuth(IAppBuilder app)
         {
             var OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
