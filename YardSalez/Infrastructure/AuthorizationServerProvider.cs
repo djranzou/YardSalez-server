@@ -25,12 +25,12 @@ namespace YardSalez.Infrastructure
                     context.SetError("invalid_grant", "The user name or password is incorrect.");
                     return;
                 }
+                var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+                identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+                identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
+
+                context.Validated(identity);
             }
-
-            var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-
-            context.Validated(identity);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace YardSalez
             {
                 DependencyResolver = new StructureMapWebApiDependencyResolver(container)
             };
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             WebApiConfig.Register(configuration);
             app.UseWebApi(configuration);
         }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="YardSalez.Azure" generation="1" functional="0" release="0" Id="055ac323-3222-401b-8a20-419a0829a6aa" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="YardSalez.Azure" generation="1" functional="0" release="0" Id="35832464-5db4-45fc-95a4-a5e68da19a09" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="YardSalez.AzureGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -70,9 +70,9 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="66e55acd-2369-40f8-91d6-c11fd94e284a" ref="Microsoft.RedDog.Contract\ServiceContract\YardSalez.AzureContract@ServiceDefinition">
+    <implementation Id="6ca0a9b5-cf3a-4e88-b311-134fcaaf3c2e" ref="Microsoft.RedDog.Contract\ServiceContract\YardSalez.AzureContract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="b1783e4c-6b67-4bec-b399-0a06f69d6aab" ref="Microsoft.RedDog.Contract\Interface\YardSalez:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="3a0b144a-1fe7-4445-ac76-37a8f788a3b0" ref="Microsoft.RedDog.Contract\Interface\YardSalez:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/YardSalez.Azure/YardSalez.AzureGroup/YardSalez:Endpoint1" />
           </inPort>
